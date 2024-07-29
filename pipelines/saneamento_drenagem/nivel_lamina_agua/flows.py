@@ -72,8 +72,9 @@ with Flow(
         dataset_id=dataset_id,
         table_id=table_id,
         dump_mode=dump_mode,
-        wait=save_path,
     )
+
+    upload_table.set_upstream(save_path)
 
     # Trigger DBT flow run
     with case(materialize_after_dump, True):
