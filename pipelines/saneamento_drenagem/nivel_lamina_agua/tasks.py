@@ -13,7 +13,7 @@ import unidecode
 from bs4 import BeautifulSoup
 from prefect import task
 
-from pipelines.saneamento_drenagem.constants import constants
+from pipelines.constants import constants
 from pipelines.utils import login, save_updated_rows_on_redis
 
 from prefeitura_rio.pipelines_utils.pandas import (
