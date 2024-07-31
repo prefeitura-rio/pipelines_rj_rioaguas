@@ -1,0 +1,113 @@
+version: 2
+models :
+
+  - name: ponto_supervisionado_alagamento
+    description: "**Descrição**: Dados sobre os pontos de alagamento supervisonados\
+      \ pela RIOAGUAS na cidade do Rio de Janeiro. Todo ano é feito um estudo para\
+      \ definir os principais pontos.\n**Frequência de atualização**: Anual\n**Cobertura\
+      \ temporal**: A partir de 2022\n**Órgão gestor dos dados**: RIOAGUAS\n**Publicado\
+      \ por**: João Paulo Fraga\n**Publicado por (email)**: joao.fraga@rio.rj.gov.br\n"
+    columns:
+      - name: id_ponto_supervisionado
+        description: ID do ponto supervisionado. Definido pela RIOAGUAS
+      - name: endereco_ponto_supervisionado
+        description: Endereço aproximado do ponto supervisionado.
+      - name: latitude
+        description: Latitude do ponto supervisonado.
+      - name: longitude
+        description: Longitude do ponto supervisonado.
+      - name: utm_x
+        description: X UTM (SAD69 Zona 23)
+      - name: utm_y
+        description: Y UTM (SAD69 Zona 23)
+      - name: top_50
+        description: Ranking  dos pontos supervisonados definido pela RIOAGUAS. Quanto
+          menor o valor, mais relevante é o ponto.
+      - name: causa_alagamento
+        description: Indica motivo principal pelo qual esse ponto alaga.
+      - name: medida_cor
+        description: Indica melhor solução para esse ponto de alagamento. Definida
+          pelo COR.
+      - name: eliminado
+        description: Ano no qual o ponto crítico foi solucionado. Valores nulos indicam
+          que ainda não foi solucionado.
+      - name: area_planejamento
+        description: Número da área de planejamento da cidade em que ocorre esse alagamento.
+      - name: regiao_administrativa
+        description: Nome da região administrativa da cidade em que ocorre esse alagamento.
+      - name: bairro
+        description: Bairro em que ocorre esse alagamento.
+      - name: bacia_hidrografica
+        description: Bacia hidrográfica a qual pertence essa região de alagamento.
+      - name: sub_bacia_hidrografica
+        description: Sub-bacia hidrográfica a qual pertence essa região de alagamento.
+      - name: geometry
+        description: Geometria da latitude e longitude desse ponto supervisionado.
+      - name: data_atualizacao
+        description: Data que a linha foi atualizada. Serve para manter o histórico
+          dos pontos supervisionados.
+      - name: ano_vigencia
+        description: Ano de vigência dos pontos supervisionados que foram definidos
+          pelo plano verão.
+      - name: classe
+        description: 'Indica a que classe o ponto supervisionado pertence: ponto crítico,
+          ponto observado ou monitorado.'
+      - name: projeto
+        description: Número do projeto de drenagem para o ponto supervisionado. Acompanhamento
+          da RIOAGUAS.
+  - name: nivel_reservatorio
+    description: "**Descrição**: Dados de nível dos reservatórios de manejo de águas\
+      \ pluviais do município do Rio de Janeiro.\n**Frequência de atualização**: Diário\n\
+      **Cobertura temporal**: Desde 04/01/2021\n**Órgão gestor dos dados**: RIO ÁGUAS\n\
+      **Publicado por**: Anderson Guilherme\n**Publicado por (email)**: anderson.guilherme@cor.rio\n"
+    columns:
+      - name: primary_key
+        description: Chave primária do dado em formato "[id_reserv]_AAAA-MM-DD_HH:MM:SS".
+      - name: id_reservatorio
+        description: Identificador do reservatório.
+      - name: nome_reservatorio
+        description: Nome do reservatório.
+      - name: data_particao
+        description: Data da medição no formato AAAA-MM-DD.
+      - name: horario
+        description: Hora da medicação no formato HH:MM:SS.
+      - name: altura_agua
+        description: Lâmina d'água no reservatório, em metros.
+
+  - name: nivel_lamina_agua_via
+    description: "**Descrição**: Dados do sensor de ultrasom para medir alagamento\
+      \ em via pública.\n**Frequência de atualização**: Diário\n**Cobertura temporal**:\
+      \ Desde 2022\n**Órgão gestor dos dados**: COR\n**Publicado por**: João Paulo\
+      \ Fraga\n**Publicado por (email)**: jpfraga.rioaguas@gmail.com\n"
+    columns:
+      - name: primary_key
+        description: Chave primária criada a partir da concatenação da coluna id_estacao
+          e data_medicao. Serve para evitar dados duplicados. Formato [id_estacao]_AAAA-MM-DD_HH:MM:SS
+      - name: id_estacao
+        description: ID da estação.
+      - name: data_particao
+        description: Data da medição em formato AAAA-MM-DD.
+      - name: horario
+        description: Hora da medição em formato HH:MM:SS.
+      - name: altura_agua
+        description: Altura da lâmina de água na via medida em metros.
+  - name: nivel_lagoa
+    description: "**Descrição**: Nivel de água medido em metros a partir da cota no\
+      \ datum IBGE nas lagoas da cidade do Rio de Janeiro.\n**Frequência de atualização**:\
+      \ Diário\n**Cobertura temporal**: A partir de 2022\n**Órgão gestor dos dados**:\
+      \ RIOAGUAS\n**Publicado por**: João Paulo Fraga\n**Publicado por (email)**:\
+      \ joao.fraga@rio.rj.gov.br\n"
+    columns:
+      - name: primary_key
+        description: Chave primária criada a partir da coluna id_lagoa, data_particao
+          e horario. Serve para evitar dados duplicados.
+      - name: id_estacao
+        description: ID único que indica a lagoa onde ocorreu a medição.
+      - name: nome_estacao
+        description: Nome da lagoa onde ocorreu a medição.
+      - name: data_particao
+        description: Data da medição em formato AAAA-MM-DD.
+      - name: horario
+        description: Hora da medição em formato HH:MM:SS.
+      - name: lamina_nivel
+        description: Cota do nível d'água da lagoa no referencial IBGE Imbituba.

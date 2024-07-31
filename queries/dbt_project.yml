@@ -21,6 +21,6 @@ models:
     relation: true
     columns: true
   queries:
-    example:
-      +materialized: view
-      +schema: example
+    saneamento_drenagem:
+      +materialized: table
+      +schema: saneamento_drenagem
