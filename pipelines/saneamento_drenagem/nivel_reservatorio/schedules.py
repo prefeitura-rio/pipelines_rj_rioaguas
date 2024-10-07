@@ -10,7 +10,9 @@ from datetime import datetime, timedelta
 import pytz
 from prefect.schedules import Schedule
 from prefect.schedules.clocks import IntervalClock
+
 from pipelines.constants import constants
+
 # from prefeitura_rio.pipelines_utils.io import untuple_clocks as untuple
 # from prefeitura_rio.pipelines_utils.prefect import generate_dump_url_schedules
 

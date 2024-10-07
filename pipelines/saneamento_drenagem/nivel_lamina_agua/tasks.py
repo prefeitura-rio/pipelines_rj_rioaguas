@@ -7,22 +7,18 @@ Tasks para pipeline de dados de nível de lâmina de água em via.
 
 from pathlib import Path
 from typing import Union
+
 import pandas as pd
 import pendulum
 import unidecode
 from bs4 import BeautifulSoup
 from prefect import task
+from prefeitura_rio.pipelines_utils.infisical import get_secret
+from prefeitura_rio.pipelines_utils.logging import log
+from prefeitura_rio.pipelines_utils.pandas import parse_date_columns, to_partitions
 
 from pipelines.constants import constants
 from pipelines.utils import login, save_updated_rows_on_redis
-
-from prefeitura_rio.pipelines_utils.pandas import (
-    to_partitions,
-    parse_date_columns,
-)
-
-from prefeitura_rio.pipelines_utils.infisical import get_secret
-from prefeitura_rio.pipelines_utils.logging import log
 
 
 @task

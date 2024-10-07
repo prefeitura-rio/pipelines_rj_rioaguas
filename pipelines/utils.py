@@ -3,11 +3,10 @@
 Utils Gerais da Rio-Águas.
 """
 
-import requests
 import pandas as pd
-from redis_pal import RedisPal
-
+import requests
 from prefeitura_rio.pipelines_utils.logging import log
+from redis_pal import RedisPal
 
 
 def login(url, user=None, password=None):

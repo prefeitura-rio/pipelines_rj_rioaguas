@@ -3,7 +3,8 @@
 Schedules de nível de lâmina de água em via.
 Rodar a cada 10 minutos
 """
-from datetime import timedelta, datetime
+from datetime import datetime, timedelta
+
 from prefect.schedules import Schedule
 from prefect.schedules.clocks import IntervalClock
 
