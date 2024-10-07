@@ -9,18 +9,16 @@ from copy import deepcopy
 
 from prefect.run_configs import KubernetesRun
 from prefect.storage import GCS
-
-from pipelines.constants import constants
-
-from pipelines.saneamento_drenagem.nivel_reservatorio.schedules import (
-    update_schedule_nivel_reservatorio,
-)
-
 from prefeitura_rio.pipelines_templates.dump_url.flows import dump_url_flow
 from prefeitura_rio.pipelines_utils.prefect import set_default_parameters
 from prefeitura_rio.pipelines_utils.state_handlers import (
     handler_initialize_sentry,
     handler_inject_bd_credentials,
+)
+
+from pipelines.constants import constants
+from pipelines.saneamento_drenagem.nivel_reservatorio.schedules import (
+    update_schedule_nivel_reservatorio,
 )
 
 nivel_gsheets_flow = deepcopy(dump_url_flow)
