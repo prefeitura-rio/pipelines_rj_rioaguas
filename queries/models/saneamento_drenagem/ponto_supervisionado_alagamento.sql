@@ -1,4 +1,4 @@
-SELECT 
+SELECT
 DISTINCT
 id_ponto_supervisionado,
 classe,
