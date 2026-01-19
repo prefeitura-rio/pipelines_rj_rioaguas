@@ -4,7 +4,7 @@
             "field": "data_particao",
             "data_type": "date",
             "granularity": "month",
-        }    
+        }
     )
 }}
 
@@ -37,7 +37,7 @@ SELECT
   '1' AS id_reservatorio,
   SAFE_CAST('Bandeira' AS STRING) AS nome_reservatorio,
   SAFE_CAST(SAFE.PARSE_TIMESTAMP('%d/%m/%Y %H:%M:%S', _) AS DATE) as data_particao,
-  SAFE_CAST(SAFE.PARSE_TIMESTAMP('%d/%m/%Y %H:%M:%S', _) AS TIME) as horario,    
+  SAFE_CAST(SAFE.PARSE_TIMESTAMP('%d/%m/%Y %H:%M:%S', _) AS TIME) as horario,
   SAFE_CAST(REPLACE(nivel_bandeira, ",", ".") as FLOAT64) as altura_agua
 FROM `rj-rioaguas.saneamento_drenagem_staging.nivel_reservatorio`
 WHERE nivel_bandeira != 'nan' AND nivel_bandeira IS NOT NULL AND nivel_bandeira != '' AND nivel_bandeira != 'null')
@@ -49,4 +49,4 @@ SELECT DISTINCT * FROM NITEROI
 
 UNION ALL
 
-SELECT DISTINCT * FROM BANDEIRA  
+SELECT DISTINCT * FROM BANDEIRA

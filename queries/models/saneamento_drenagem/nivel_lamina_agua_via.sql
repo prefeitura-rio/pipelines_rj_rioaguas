@@ -1,4 +1,4 @@
-SELECT 
+SELECT
 DISTINCT
 CONCAT(id_estacao, '_', data_medicao) AS primary_key,
 SAFE_CAST(altura_agua AS FLOAT64) altura_agua,
